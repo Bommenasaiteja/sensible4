@@ -6,7 +6,8 @@
  * 
  * Features:
  * - Hide on scroll using shouldHideOnScroll prop
- * - Togglable menu on the right side
+ * - Hamburger menu for mobile/tablet (< 1024px)
+ * - Full navigation menu for desktop (≥ 1024px)
  * - Disabled animations for menu toggle
  * - Responsive design
  */
@@ -91,13 +92,13 @@ const Header = () => {
       </NavbarContent>
 
       {/* Center Navigation Menu - Desktop Only */}
-      <NavbarContent className="hidden sm:flex gap-8 px-8" justify="center">
+      <NavbarContent className="hidden lg:flex gap-8 px-8" justify="center">
         {centerMenuItems.map((item, index) => (
           <NavbarItem key={`center-${item.name}-${index}`}>
             <Link 
               color="foreground" 
               href={item.href}
-              className="hover:text-primary transition-colors px-2"
+              className="font-semibold hover:text-primary-500 transition-colors px-2"
             >
               {item.name}
             </Link>
@@ -106,13 +107,13 @@ const Header = () => {
       </NavbarContent>
 
       {/* Right Side Items - Desktop Only */}
-      <NavbarContent className="hidden sm:flex gap-4" justify="end">
+      <NavbarContent className="hidden lg:flex gap-4" justify="end">
         {rightMenuItems.map((item, index) => (
           <NavbarItem key={`right-${item.name}-${index}`}>
             <Link 
               color="foreground" 
               href={item.href}
-              className="hover:text-primary transition-colors"
+              className="font-semibold hover:text-primary-500 transition-colors"
             >
               {item.name}
             </Link>
@@ -124,32 +125,32 @@ const Header = () => {
             color="primary"
             href="#contact-us"
             variant="solid"
-            className="font-medium"
+            className="font-bold"
           >
             Contact Us
           </Button>
         </NavbarItem>
       </NavbarContent>
 
-      {/* Mobile Menu Toggle - positioned on the right */}
-      <NavbarContent className="sm:hidden" justify="end">
+      {/* Mobile/Tablet Menu Toggle - positioned on the right */}
+      <NavbarContent className="lg:hidden" justify="end">
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         />
       </NavbarContent>
 
-      {/* Mobile Navigation Menu - Centered Content */}
+      {/* Mobile/Tablet Navigation Menu - Centered Content */}
       <NavbarMenu className="pt-6">
         <div className="flex flex-col items-center space-y-4">
           {allMenuItems.map((item, index) => (
-            <NavbarMenuItem key={`mobile-${item.name}-${index}`} className="w-full flex justify-center">
+            <NavbarMenuItem key={`menu-${item.name}-${index}`} className="w-full flex justify-center">
               {item.name === "Contact Us" ? (
                 <Button 
                   as={Link}
                   color="primary"
                   href={item.href}
                   variant="solid"
-                  className="font-medium"
+                  className="font-bold"
                   size="lg"
                 >
                   {item.name}
@@ -157,7 +158,7 @@ const Header = () => {
               ) : (
                 <Link
                   color="foreground"
-                  className="text-lg py-2 text-center"
+                  className="text-lg py-2 text-center font-semibold hover:text-primary-500 transition-colors"
                   href={item.href}
                   size="lg"
                 >

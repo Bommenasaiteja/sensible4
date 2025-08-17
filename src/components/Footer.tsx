@@ -89,23 +89,23 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-primary text-primary-foreground">
+    <footer className="bg-black text-white">
       {/* Top Grid Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12 pb-6 md:pb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-12 gap-6 md:gap-8 lg:gap-12">
           
           {/* Left Column - Brand/Contact */}
-          <div className="lg:col-span-3 space-y-6">
+          <div className="md:col-span-1 lg:col-span-3 space-y-4 md:space-y-6">
             {/* Brand Logo */}
             <div>
-              <h2 className="text-3xl font-bold lowercase">sensible<sup className="text-lg">4</sup></h2>
+              <h2 className="text-2xl md:text-3xl font-bold lowercase">sensible<sup className="text-sm md:text-lg">4</sup></h2>
             </div>
             
             {/* Email */}
             <div>
               <a 
                 href={`mailto:${footerData.email}`}
-                className="text-primary-foreground hover:text-primary-foreground/80 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-foreground focus:ring-offset-2 focus:ring-offset-primary rounded"
+                className="text-white hover:text-primary-400 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-black rounded"
               >
                 {footerData.email}
               </a>
@@ -120,7 +120,7 @@ export default function Footer() {
                     key={social.name}
                     href={social.href}
                     aria-label={`Follow us on ${social.name}`}
-                    className="text-primary-foreground hover:text-primary-foreground/80 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-foreground focus:ring-offset-2 focus:ring-offset-primary rounded p-1"
+                    className="text-white hover:text-primary-400 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-black rounded p-1"
                   >
                     <IconComponent />
                   </a>
@@ -134,7 +134,7 @@ export default function Footer() {
                 <div key={link.label}>
                   <a
                     href={link.href}
-                    className="text-primary-foreground hover:text-primary-foreground/80 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-foreground focus:ring-offset-2 focus:ring-offset-primary rounded block"
+                    className="text-white hover:text-primary-400 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-black rounded block"
                   >
                     {link.label}
                   </a>
@@ -143,24 +143,24 @@ export default function Footer() {
             </div>
             
             {/* Company Blurb */}
-            <div className="text-sm text-primary-foreground/80 leading-relaxed hidden lg:block">
+            <div className="text-sm text-gray-300 leading-relaxed hidden md:block">
               {footerData.blurb}
             </div>
           </div>
           
           {/* Middle Columns - Navigation */}
-          <div className="lg:col-span-6">
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 lg:gap-8">
+          <div className="md:col-span-1 lg:col-span-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-3 lg:gap-6">
               {footerData.groups.map((group) => (
                 <div key={group.title} className="space-y-3">
-                  <h3 className="font-semibold text-primary-foreground">{group.title}</h3>
+                  <h3 className="font-semibold text-white">{group.title}</h3>
                   {group.links && (
                     <ul className="space-y-2">
                       {group.links.map((link) => (
                         <li key={link.label}>
                           <a
                             href={link.href}
-                            className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm focus:outline-none focus:ring-2 focus:ring-primary-foreground focus:ring-offset-2 focus:ring-offset-primary rounded"
+                            className="text-gray-300 hover:text-primary-400 transition-colors text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-black rounded"
                           >
                             {link.label}
                           </a>
@@ -174,9 +174,9 @@ export default function Footer() {
           </div>
           
           {/* Right Column - Newsletter */}
-          <div className="lg:col-span-3">
+          <div className="md:col-span-1 lg:col-span-3">
             <div className="space-y-4">
-              <h3 className="text-xl font-semibold">Get our latest updates</h3>
+              <h3 className="text-lg md:text-xl font-semibold">Get our latest updates</h3>
               
               <form onSubmit={handleNewsletterSubmit} className="space-y-4">
                 <div>
@@ -191,7 +191,7 @@ export default function Footer() {
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="EMAIL ADDRESS"
                       required
-                      className="w-full bg-transparent border-0 border-b border-primary-foreground text-primary-foreground placeholder-primary-foreground/60 focus:outline-none focus:border-primary-foreground/80 pb-2 text-sm"
+                      className="w-full bg-transparent border-0 border-b border-white text-white placeholder-gray-400 focus:outline-none focus:border-white/80 pb-2 text-sm"
                     />
                   </div>
                 </div>
@@ -203,24 +203,24 @@ export default function Footer() {
                       type="checkbox"
                       checked={agreeToPrivacy}
                       onChange={(e) => setAgreeToPrivacy(e.target.checked)}
-                      className="mt-1 h-4 w-4 text-primary-foreground focus:ring-primary-foreground border-primary-foreground rounded bg-transparent"
+                      className="mt-1 h-4 w-4 text-primary focus:ring-primary border-white rounded bg-transparent"
                       required
                     />
-                    <label htmlFor="privacy-checkbox" className="text-sm text-primary-foreground/80">
+                    <label htmlFor="privacy-checkbox" className="text-sm text-gray-300">
                       I agree with the{' '}
                       <a 
                         href="#" 
-                        className="underline hover:no-underline focus:outline-none focus:ring-2 focus:ring-primary-foreground focus:ring-offset-2 focus:ring-offset-primary rounded"
+                        className="underline hover:no-underline focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-black rounded"
                       >
                         privacy policy
                       </a>
                     </label>
                   </div>
                   
-                  <div className="text-sm text-primary-foreground/70">
+                  <div className="text-sm text-gray-400">
                     <a 
                       href="#" 
-                      className="underline hover:no-underline focus:outline-none focus:ring-2 focus:ring-primary-foreground focus:ring-offset-2 focus:ring-offset-primary rounded"
+                      className="underline hover:no-underline focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-black rounded"
                     >
                       Read our privacy policy here
                     </a>
@@ -229,7 +229,7 @@ export default function Footer() {
                 
                 <button
                   type="submit"
-                  className="bg-primary-foreground text-primary px-6 py-2 text-sm font-medium hover:bg-primary-foreground/90 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-foreground focus:ring-offset-2 focus:ring-offset-primary rounded"
+                  className="bg-primary text-white px-6 py-2 text-sm font-medium hover:bg-primary-600 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-black rounded"
                 >
                   Submit
                 </button>
@@ -238,27 +238,27 @@ export default function Footer() {
           </div>
         </div>
         
-        {/* Company Blurb for mobile */}
-        <div className="text-sm text-primary-foreground/80 leading-relaxed mt-8 lg:hidden">
+        {/* Company Blurb for mobile/small screens */}
+        <div className="text-sm text-gray-300 leading-relaxed mt-8 md:hidden">
           {footerData.blurb}
         </div>
       </div>
       
       {/* Thin Divider Line */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="border-t border-primary-foreground/20"></div>
+        <div className="border-t border-gray-800"></div>
       </div>
       
       {/* Oversized Wordmark Row */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-bold lowercase text-primary-foreground/10">
+        <div className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold lowercase text-gray-900">
           sensible
         </div>
       </div>
       
       {/* Bottom Legal Row */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0 text-sm text-primary-foreground/70">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0 text-sm text-gray-400">
           <div>
             © 2022 Sensible 4 Oy. All rights reserved.
           </div>
@@ -266,13 +266,13 @@ export default function Footer() {
           <div className="flex flex-wrap gap-4 sm:gap-6">
             <a 
               href="#" 
-              className="hover:text-primary-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-primary-foreground focus:ring-offset-2 focus:ring-offset-primary rounded"
+              className="hover:text-primary-400 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-black rounded"
             >
               Privacy
             </a>
             <a 
               href="#" 
-              className="hover:text-primary-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-primary-foreground focus:ring-offset-2 focus:ring-offset-primary rounded"
+              className="hover:text-primary-400 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-black rounded"
             >
               Deployments
             </a>
